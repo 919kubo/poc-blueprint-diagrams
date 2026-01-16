@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200">
+  <rect x="0" y="0" width="800" height="200" fill="#f5f5ff"/>
+  <text x="400" y="110" text-anchor="middle" font-size="24" fill="#333">
+    PoC Blueprint L1
+  </text>
+</svg>
