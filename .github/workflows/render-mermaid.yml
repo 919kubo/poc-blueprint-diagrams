@@ -1,12 +1,10 @@
-name: render-mermaid
+name: Render Mermaid to SVG
 
 on:
   push:
     paths:
       - "diagrams/**/*.mmd"
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
   render:
@@ -14,17 +12,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: npm i -g @mermaid-js/mermaid-cli
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-      - name: render top-L1.svg
+      - name: Install mermaid-cli
+        run: npm i -g @mermaid-js/mermaid-cli
+
+      - name: Render .mmd to .svg
         run: |
           mkdir -p docs/assets/svg
-          mmdc -i diagrams/top/top-L1.mmd -o docs/assets/svg/top-L1.svg
+          for f in diagrams/**/*.mmd; do
+            base=$(basename "$f" .mmd)
+            npx -y @mermaid-js/mermaid-cli -i "$f" -o "docs/assets/svg/$base.svg"
+          done
 
-      - name: commit svg
+      - name: Commit SVGs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add docs/assets/svg/top-L1.svg
-          git commit -m "render svg" || exit 0
+          git add docs/assets/svg
+          git commit -m "Update rendered SVGs" || echo "No changes"
           git push
