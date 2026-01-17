@@ -3,27 +3,213 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PoC Blueprint Diagrams</title>
+<title>PoC Blueprint | study-dx</title>
+
 <style>
-.diagram {
-max-width: 1000px;   /* ← 全体の横幅を制限 */
-margin: 40px auto;   /* ← 中央寄せ */
+/* --- Minimum layout (mother ship) --- */
+:root { --w: 1040px; }
+body{
+margin: 0;
+padding: 0;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+line-height: 1.75;
+color: #111;
+background: #fff;
+}
+.wrap{
+max-width: var(--w);
+margin: 0 auto;
+padding: 28px 18px 80px;
+}
+header{
+padding: 14px 0 18px;
+border-bottom: 1px solid #eee;
+margin-bottom: 26px;
+}
+h1{
+margin: 0 0 10px;
+font-size: 34px;
+letter-spacing: 0.2px;
+}
+.sub{
+margin: 0;
+font-size: 15px;
+color: #444;
+}
+nav{
+margin-top: 14px;
+display: flex;
+flex-wrap: wrap;
+gap: 10px 14px;
+font-size: 14px;
+}
+nav a{
+color: #111;
+text-decoration: none;
+border-bottom: 1px solid #ddd;
+padding-bottom: 2px;
+}
+nav a:hover{ border-bottom-color:#111; }
+
+.hero{
+margin: 22px 0 12px;
+padding: 14px 0 2px;
+}
+.three{
+margin: 0;
+font-size: 16px;
+}
+.three b{ font-weight: 700; }
+
+section{
+margin-top: 44px;
+padding-top: 10px;
+}
+h2{
+margin: 0 0 12px;
+font-size: 20px;
+}
+.note{
+font-size: 14px;
+color: #555;
 }
 
-.diagram img {
-width: 100%;         /* ← 枠に合わせて縮小 */
-height: auto;
+/* Diagram container */
+.diagram{
+max-width: var(--w);
+margin: 16px auto 6px;
+border: 1px solid #eee;
+border-radius: 10px;
+padding: 14px;
+background: #fafafa;
 }
+.diagram img{
+width: 100%;
+height: auto;
+display: block;
+}
+
+.cta{
+margin-top: 18px;
+padding: 12px 14px;
+border: 1px solid #eee;
+border-radius: 10px;
+background: #fff;
+font-size: 14px;
+}
+.cta a{ color:#111; }
+
+footer{
+margin-top: 64px;
+padding-top: 18px;
+border-top: 1px solid #eee;
+font-size: 13px;
+color:#666;
+}
+code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </head>
-<body>
-<h1>PoC Blueprint Diagrams</h1>
 
-<h2>study-dx Top Structure（L1）</h2>
-<div class="diagram">
-<img src="./assets/svg/top-L1.svg" alt="PoC Blueprint L1">
+<body>
+<div class="wrap">
+
+<header id="top">
+<h1>PoC Blueprint</h1>
+<p class="sub">図で考え、試し、弱点を可視化し、実装につなぐ。</p>
+
+<nav>
+<a href="#what">What is PoC Blueprint?</a>
+<a href="#why">Why Mermaid?</a>
+<a href="#demo">デモ導線</a>
+<a href="#showcase">Showcase</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- Top 3 lines (polished) -->
+<div class="hero">
+<p class="three">
+現場や学習の事実を、AIで <b>意味の整理・構造化</b> し、<br />
+Mermaidで <b>全体像（L1）</b> にしてから、PoCと実装につなぐ設計思想です。<br />
+まず“作らずに”、図で <b>説明・合意・判断</b> を作ります。
+</p>
+<p class="note">※ AIは判断しません。やるのは「下ごしらえ（整理・構造化）」だけです。</p>
 </div>
 
-<p>更新は diagrams/*.mmd を編集して push するだけ。</p>
+<!-- L1 diagram -->
+<section id="l1">
+<h2>Top Structure（L1）</h2>
+<div class="diagram">
+<img src="./assets/svg/top-L1.svg" alt="PoC Blueprint L1" />
+</div>
+<p class="note">更新は <code>diagrams/*.mmd</code> を編集してSVGを差し替えるだけ（手動運用でOK）。</p>
+</section>
+
+<!-- Minimal mother ship pages (as sections for now) -->
+<section id="what">
+<h2>What is PoC Blueprint?</h2>
+<p>
+PoC Blueprint は「作る前に、図で合意し、失敗を減らす」ための設計思想です。<br />
+成果物はコードではなく、まず <b>L1の全体像（1枚）</b>。ここで説明・認識合わせができます。
+</p>
+</section>
+
+<section id="why">
+<h2>Why Mermaid?</h2>
+<p>
+Mermaidは、非エンジニアでも読めて、エンジニアはそのまま実装に接続できます。<br />
+<b>編集は .mmd、公開は SVG固定</b> にすると、壊れずに共有できます。
+</p>
+</section>
+
+<section id="demo">
+<h2>デモ導線（紙芝居 → 申請 → 個別共有）</h2>
+<ol>
+<li>1枚図（L1）で全体像を確認（営業トークなし）</li>
+<li>必要なら、個別の共有スペースで短期デモ</li>
+<li>進む/進まないをその場で決めなくてOK</li>
+</ol>
+<div class="cta">
+デモは準備中（この枠は後でフォームに置き換え）。<br />
+連絡したい方は <a href="#contact">Contact</a> へ。
+</div>
+</section>
+
+<section id="showcase">
+<h2>Showcase（今見れるもの）</h2>
+<ul>
+<li>PoC Blueprint Top（L1）</li>
+<li>英検DX（L1）…次に追加します</li>
+</ul>
+
+<!-- 英検DX L1 を 2枚目として並べる（ファイルができたら有効化） -->
+<!--
+<h3 style="margin-top:18px;font-size:16px;">英検DX（L1）</h3>
+<div class="diagram">
+<img src="./assets/svg/eiken-L1.svg" alt="英検DX L1" />
+</div>
+-->
+<p class="note">英検DX L1 を追加する場合は、<code>docs/assets/svg/eiken-L1.svg</code> を置けばOKです。</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p class="note">営業連絡はしません。必要な方だけ次のステップをご案内します。</p>
+<ul>
+<li>連絡したい：メールだけ</li>
+<li>気になっています：メールだけ</li>
+</ul>
+<p class="note">
+（フォームは後で。いまは mailto でもOK）<br />
+例：<a href="mailto:contact@study-dx.com">contact@study-dx.com</a>
+</p>
+</section>
+
+<footer>
+<div>PoC Blueprint / study-dx</div>
+<div><a href="#top" style="color:#666;text-decoration:none;border-bottom:1px solid #ddd;">↑ Topへ戻る</a></div>
+</footer>
+
+</div>
 </body>
 </html>
