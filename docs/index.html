@@ -1,16 +1,29 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PoC Blueprint Diagrams</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PoC Blueprint Diagrams</title>
+<style>
+.diagram {
+max-width: 1000px;   /* ← 全体の横幅を制限 */
+margin: 40px auto;   /* ← 中央寄せ */
+}
+
+.diagram img {
+width: 100%;         /* ← 枠に合わせて縮小 */
+height: auto;
+}
+</style>
 </head>
 <body>
-  <h1>PoC Blueprint Diagrams</h1>
+<h1>PoC Blueprint Diagrams</h1>
 
-  <h2>study-dx Top Structure（L1）</h2>
-  <img src="./assets/svg/top-L1.svg" alt="Top L1 Diagram" style="max-width:100%;height:auto;" />
+<h2>study-dx Top Structure（L1）</h2>
+<div class="diagram">
+<img src="./assets/svg/top-L1.svg" alt="PoC Blueprint L1">
+</div>
 
-  <p>更新は diagrams/*.mmd を編集して push するだけ。</p>
+<p>更新は diagrams/*.mmd を編集して push するだけ。</p>
 </body>
 </html>
