@@ -6,7 +6,6 @@
 <title>PoC Blueprint | study-dx</title>
 
 <style>
-/* --- Minimum layout (mother ship) --- */
 :root { --w: 1040px; }
 body{
   margin: 0;
@@ -29,7 +28,6 @@ header{
 h1{
   margin: 0 0 10px;
   font-size: 34px;
-  letter-spacing: 0.2px;
 }
 .sub{
   margin: 0;
@@ -52,18 +50,12 @@ nav a{
 nav a:hover{ border-bottom-color:#111; }
 
 .hero{
-  margin: 22px 0 12px;
-  padding: 14px 0 2px;
+  margin: 22px 0 20px;
 }
-.three{
-  margin: 0;
-  font-size: 16px;
-}
-.three b{ font-weight: 700; }
+.hero p{ margin: 8px 0; }
 
 section{
-  margin-top: 44px;
-  padding-top: 10px;
+  margin-top: 48px;
 }
 h2{
   margin: 0 0 12px;
@@ -74,10 +66,9 @@ h2{
   color: #555;
 }
 
-/* Diagram container */
+/* Diagram */
 .diagram{
-  max-width: var(--w);
-  margin: 16px auto 6px;
+  margin: 14px 0 8px;
   border: 1px solid #eee;
   border-radius: 10px;
   padding: 14px;
@@ -89,35 +80,21 @@ h2{
   display: block;
 }
 
-/* Read links (entry points) */
+/* Links */
 .read-links{
-  margin-top: 10px;
-  padding: 10px 12px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  background: #fff;
-  font-size: 14px;
-}
-.read-links p{
-  margin: 6px 0;
-}
-.read-links a{
-  color: #111;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 2px;
-}
-.read-links a:hover{ border-bottom-color:#111; }
-
-.cta{
-  margin-top: 18px;
+  margin-top: 12px;
   padding: 12px 14px;
   border: 1px solid #eee;
   border-radius: 10px;
   background: #fff;
   font-size: 14px;
 }
-.cta a{ color:#111; }
+.read-links a{
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+}
+.read-links a:hover{ border-bottom-color:#111; }
 
 footer{
   margin-top: 64px;
@@ -126,7 +103,6 @@ footer{
   font-size: 13px;
   color:#666;
 }
-code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 </style>
 </head>
 
@@ -135,103 +111,88 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
 <header id="top">
   <h1>PoC Blueprint</h1>
-  <p class="sub">図で考え、試し、弱点を可視化し、実装につなぐ。</p>
+  <p class="sub">作る前に、図で合意し、失敗を減らす。</p>
 
   <nav>
-    <a href="#what">What is PoC Blueprint?</a>
-    <a href="#why">Why Mermaid?</a>
-    <a href="#demo">デモ導線 / Demo Flow</a>
+    <a href="#overview">Overview</a>
+    <a href="#structure">Structure</a>
+    <a href="#ui">UI Flow</a>
     <a href="#showcase">Showcase</a>
-    <a href="#contact">問い合わせ / Contact</a>
   </nav>
 </header>
 
 <div class="hero">
-  <p class="three">
-    現場や学習の事実を、AIで <b>意味の整理・構造化</b> し、<br />
-    Mermaidで <b>全体像（L1）</b> にしてから、PoCと実装につなぐ設計思想です。<br />
-    まず“作らずに”、図で <b>説明・合意・判断</b> を作ります。
+  <p>
+    PoC Blueprint は、AIやKPIの前に<br />
+    <b>「観測できる構造」を先に作る</b>ための設計アプローチです。
   </p>
   <p class="note">
-    AI helps <b>structure meaning</b>, then we draw the <b>Blueprint (L1)</b> before building.
+    AIは判断しません。意味の整理と構造化だけを支援します。
   </p>
-  <p class="note">※ AIは判断しません。やるのは「下ごしらえ（整理・構造化）」だけです。</p>
 </div>
 
-<section id="l1">
-  <h2>Top Structure（L1）</h2>
+<!-- ① PoC全体像 -->
+<section id="overview">
+  <h2>PoC全体像（L1 / L2 / L3）</h2>
   <div class="diagram">
-    <img src="./assets/svg/top-L1.svg" alt="PoC Blueprint L1" />
+    <img src="./assets/img/poc-3layer.png"
+         alt="PoC Blueprint 全体像。L1 UI、L2 観測ログ、L3 AI拡張の3レイヤ構成" />
   </div>
-  <p class="note">更新は <code>diagrams/*.mmd</code> を編集してSVGを差し替えるだけ（手動運用でOK）。</p>
-</section>
-
-<section id="what">
-  <h2>What is PoC Blueprint?</h2>
-  <p>
-    PoC Blueprint は「作る前に、図で合意し、失敗を減らす」ための設計思想です。<br />
-    成果物はコードではなく、まず <b>L1の全体像（1枚）</b>。ここで説明・認識合わせができます。
+  <p class="note">
+    L1（紙芝居UI）→ L2（観測ログ）→ L3（弱点領域×AI）の順で拡張します。
   </p>
 </section>
 
-<section id="why">
-  <h2>Why Mermaid?</h2>
-  <p>
-    Mermaidは、非エンジニアでも読めて、エンジニアはそのまま実装に接続できます。<br />
-    <b>編集は .mmd、公開は SVG固定</b> にすると、壊れずに共有できます。
+<!-- ② PoC構造図（Mermaid） -->
+<section id="structure">
+  <h2>PoC構造図（Mermaid / L1）</h2>
+  <div class="diagram">
+    <img src="./assets/svg/top-L1.svg"
+         alt="PoC構造図。Today・Test・Weakness からなる L1 UI の関係図（Mermaid）" />
+  </div>
+  <p class="note">
+    編集は <code>.mmd</code>、公開は SVG 固定。設計と実装を直接つなぎます。
   </p>
 </section>
 
-<section id="demo">
-  <h2>デモ導線（紙芝居 → 申請 → 個別共有）</h2>
-  <ol>
-    <li>1枚図（L1）で全体像を確認（営業トークなし）</li>
-    <li>必要なら、個別の共有スペースで短期デモ</li>
-    <li>進む/進まないをその場で決めなくてOK</li>
-  </ol>
-  <div class="cta">
-    デモは準備中（この枠は後でフォームに置き換え）。<br />
-    連絡したい方は <a href="#contact">Contact</a> へ。
+<!-- ③ UIの紙芝居 -->
+<section id="ui">
+  <h2>L1 UI（Today → Test → Weakness）</h2>
+  <div class="diagram">
+    <img src="./assets/img/weakness.png"
+         alt="Today・Test・Weakness を並べた UI フロー。観測から判断へ進む最小構成" />
   </div>
+  <p class="note">
+    操作順は Today → Test → Weakness。判断視点で紙芝居として並べています。
+  </p>
 </section>
 
+<!-- Showcase -->
 <section id="showcase">
-  <h2>Showcase（今見れるもの）</h2>
-  <ul>
-    <li>PoC Blueprint Top（L1）</li>
-    <li>英検DX（L1）</li>
-  </ul>
+  <h2>Showcase</h2>
 
-  <h3 style="margin-top:18px;font-size:16px;">英検DX（L1）</h3>
   <div class="diagram">
-    <img src="./assets/svg/eiken-L1.svg" alt="英検DX L1" />
+    <img src="./assets/svg/eiken-L1.svg"
+         alt="英検DX PoC の L1 構造図（Mermaid）" />
   </div>
 
   <div class="read-links">
-    <p>▶ <a href="https://note.com/poc_blueprint_e/n/ndcd20374a12a">エンジニア向け解説（設計思想・PoC Blueprint）</a></p>
-    <p>▶ <a href="https://note.com/poc_blueprint/n/n50184caa4e24">非エンジニア向け解説（学習支援DXの考え方）</a></p>
+    <p>▶ <a href="https://note.com/poc_blueprint_e/n/ndcd20374a12a">
+      note（エンジニア向け）：設計思想とPoC Blueprint
+    </a></p>
+    <p>▶ <a href="https://note.com/poc_blueprint/n/n50184caa4e24">
+      note（非エンジニア向け）：学習支援DXの考え方
+    </a></p>
   </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p class="note">一方的な営業連絡はしません。ご連絡が必要な方は以下の要領でお願いします。</p>
-  <ul>
-    <li>空メールではなく、</li>
-    <li>「連絡したい」または「気になっています」の一言を入れて</li>
-    <li>下記の　poc担当　のメールアドレスへ</li>
-  </ul>
-  <p class="note">
-    <a href="mailto:poc@study-dx.com">poc@study-dx.com</a>
-  </p>
 </section>
 
 <footer>
   <div>PoC Blueprint / study-dx</div>
-  <div><a href="#top" style="color:#666;text-decoration:none;border-bottom:1px solid #ddd;">↑ Topへ戻る</a></div>
+  <div><a href="#top" style="color:#666;text-decoration:none;">↑ Top</a></div>
 </footer>
 
 </div>
 </body>
 </html>
+
 
