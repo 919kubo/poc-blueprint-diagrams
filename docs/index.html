@@ -8,100 +8,100 @@
 <style>
 :root { --w: 1040px; }
 body{
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
-  line-height: 1.75;
-  color: #111;
-  background: #fff;
+margin: 0;
+padding: 0;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+line-height: 1.75;
+color: #111;
+background: #fff;
 }
 .wrap{
-  max-width: var(--w);
-  margin: 0 auto;
-  padding: 28px 18px 80px;
+max-width: var(--w);
+margin: 0 auto;
+padding: 28px 18px 80px;
 }
 header{
-  padding: 14px 0 18px;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 26px;
+padding: 14px 0 18px;
+border-bottom: 1px solid #eee;
+margin-bottom: 26px;
 }
 h1{
-  margin: 0 0 10px;
-  font-size: 34px;
+margin: 0 0 10px;
+font-size: 34px;
 }
 .sub{
-  margin: 0;
-  font-size: 15px;
-  color: #444;
+margin: 0;
+font-size: 15px;
+color: #444;
 }
 nav{
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  font-size: 14px;
+margin-top: 14px;
+display: flex;
+flex-wrap: wrap;
+gap: 10px 14px;
+font-size: 14px;
 }
 nav a{
-  color: #111;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 2px;
+color: #111;
+text-decoration: none;
+border-bottom: 1px solid #ddd;
+padding-bottom: 2px;
 }
 nav a:hover{ border-bottom-color:#111; }
 
 .hero{
-  margin: 22px 0 20px;
+margin: 22px 0 20px;
 }
 .hero p{ margin: 8px 0; }
 
 section{
-  margin-top: 48px;
+margin-top: 48px;
 }
 h2{
-  margin: 0 0 12px;
-  font-size: 20px;
+margin: 0 0 12px;
+font-size: 20px;
 }
 .note{
-  font-size: 14px;
-  color: #555;
+font-size: 14px;
+color: #555;
 }
 
 /* Diagram */
 .diagram{
-  margin: 14px 0 8px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 14px;
-  background: #fafafa;
+margin: 14px 0 8px;
+border: 1px solid #eee;
+border-radius: 10px;
+padding: 14px;
+background: #fafafa;
 }
 .diagram img{
-  width: 100%;
-  height: auto;
-  display: block;
+width: 100%;
+height: auto;
+display: block;
 }
 
 /* Links */
 .read-links{
-  margin-top: 12px;
-  padding: 12px 14px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  background: #fff;
-  font-size: 14px;
+margin-top: 12px;
+padding: 12px 14px;
+border: 1px solid #eee;
+border-radius: 10px;
+background: #fff;
+font-size: 14px;
 }
 .read-links a{
-  color: #111;
-  text-decoration: none;
-  border-bottom: 1px solid #ddd;
+color: #111;
+text-decoration: none;
+border-bottom: 1px solid #ddd;
 }
 .read-links a:hover{ border-bottom-color:#111; }
 
 footer{
-  margin-top: 64px;
-  padding-top: 18px;
-  border-top: 1px solid #eee;
-  font-size: 13px;
-  color:#666;
+margin-top: 64px;
+padding-top: 18px;
+border-top: 1px solid #eee;
+font-size: 13px;
+color:#666;
 }
 </style>
 </head>
@@ -110,85 +110,88 @@ footer{
 <div class="wrap">
 
 <header id="top">
-  <h1>PoC Blueprint</h1>
-  <p class="sub">作る前に、図で合意し、失敗を減らす。</p>
+<h1>PoC Blueprint</h1>
+<p class="sub">AIの前にやることがある。</p>
 
-  <nav>
-    <a href="#overview">Overview</a>
-    <a href="#structure">Structure</a>
-    <a href="#ui">UI Flow</a>
-    <a href="#showcase">Showcase</a>
-  </nav>
+<nav>
+<a href="#overview">Overview</a>
+<a href="#structure">Structure</a>
+<a href="#ui">UI Flow</a>
+<a href="#showcase">Showcase</a>
+</nav>
 </header>
 
 <div class="hero">
-  <p>
-    PoC Blueprint は、AIやKPIの前に<br />
-    <b>「観測できる構造」を先に作る</b>ための設計アプローチです。
-  </p>
-  <p class="note">
-    AIは判断しません。意味の整理と構造化だけを支援します。
-  </p>
+<p>
+学習支援DXを、<br />
+<b>観測からはじめる</b>ための設計アプローチ。
+</p>
+<p class="note">
+AIは判断しません。意味の整理と構造化だけを支援します。
+</p>
 </div>
 
 <!-- ① PoC全体像 -->
 <section id="overview">
-  <h2>PoC全体像（L1 / L2 / L3）</h2>
-  <div class="diagram">
-    <img src="./assets/img/poc-3layer.png"
-         alt="PoC Blueprint 全体像。L1 UI、L2 観測ログ、L3 AI拡張の3レイヤ構成" />
-  </div>
-  <p class="note">
-    L1（紙芝居UI）→ L2（観測ログ）→ L3（弱点領域×AI）の順で拡張します。
-  </p>
+<h2>PoC全体像（L1 / L2 / L3）</h2>
+<div class="diagram">
+<img src="./assets/img/poc-3layer.png"
+alt="PoC Blueprint 全体像。L1 UI、L2 観測ログ、L3 AI拡張の3レイヤ構成" />
+</div>
+<p class="note">
+L1（紙芝居UI）→ L2（観測ログ）→ L3（弱点領域×AI）の順で拡張します。
+</p>
 </section>
 
 <!-- ② PoC構造図（Mermaid） -->
 <section id="structure">
-  <h2>PoC構造図（Mermaid / L1）</h2>
-  <div class="diagram">
-    <img src="./assets/svg/top-L1.svg"
-         alt="PoC構造図。Today・Test・Weakness からなる L1 UI の関係図（Mermaid）" />
-  </div>
-  <p class="note">
-    編集は <code>.mmd</code>、公開は SVG 固定。設計と実装を直接つなぎます。
-  </p>
+<h2>PoC構造図（Mermaid / L1）</h2>
+<div class="diagram">
+<img src="./assets/svg/top-L1.svg"
+alt="PoC構造図。Today・Test・Weakness からなる L1 UI の関係図（Mermaid）" />
+</div>
+<p class="note">
+編集は <code>.mmd</code>、公開は SVG 固定。設計と実装を直接つなぎます。
+</p>
 </section>
 
 <!-- ③ UIの紙芝居 -->
 <section id="ui">
-  <h2>L1 UI（Today → Test → Weakness）</h2>
-  <div class="diagram">
-    <img src="./assets/img/weaknes.png"
-         alt="Today・Test・Weakness を並べた UI フロー。観測から判断へ進む最小構成" />
-  </div>
-  <p class="note">
-    操作順は Today → Test → Weakness。判断視点で紙芝居として並べています。
-  </p>
+<h2>L1 UI（Today → Test → Weakness）</h2>
+<div class="diagram">
+<img src="./assets/img/weaknes.png"
+alt="Today・Test・Weakness を並べた UI フロー。観測から判断へ進む最小構成" />
+</div>
+<p class="note">
+操作順は Today → Test → Weakness。判断視点で紙芝居として並べています。
+</p>
 </section>
 
 <!-- Showcase -->
 <section id="showcase">
-  <h2>Showcase</h2>
+<h2>Showcase</h2>
 
-  <div class="diagram">
-    <img src="./assets/svg/eiken-L1.svg"
-         alt="英検DX PoC の L1 構造図（Mermaid）" />
-  </div>
+<div class="diagram">
+<img src="./assets/svg/eiken-L1.svg"
+alt="英検DX PoC の L1 構造図（Mermaid）" />
+</div>
 
-  <div class="read-links">
-    <p>▶ <a href="https://note.com/poc_blueprint_e/n/ndcd20374a12a">
-      note（エンジニア向け）：設計思想とPoC Blueprint
-    </a></p>
-    <p>▶ <a href="https://note.com/poc_blueprint/n/n50184caa4e24">
-      note（非エンジニア向け）：学習支援DXの考え方
-    </a></p>
-  </div>
-</section>
+<div class="read-links">
+<p>
+▶ <a href="https://note.com/poc_blueprint_e/n/n80d211609ba1">
+note（エンジニア向け）：PoC Blueprint の設計思想
+</a>
+</p>
+<p>
+▶ <a href="https://note.com/poc_blueprint/n/ne58e0af5be01">
+note（非エンジニア向け）：学習支援DXの考え方
+</a>
+</p>
+</div>
 
 <footer>
-  <div>PoC Blueprint / study-dx</div>
-  <div><a href="#top" style="color:#666;text-decoration:none;">↑ Top</a></div>
+<div>PoC Blueprint / study-dx</div>
+<div><a href="#top" style="color:#666;text-decoration:none;">↑ Top</a></div>
 </footer>
 
 </div>
